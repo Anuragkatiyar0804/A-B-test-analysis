@@ -163,7 +163,7 @@ else:
 
         expected_ratio = st.slider(
     "Expected split ratio (control : total)",
-         min_value=0.01, max_value=0.99, value=0.5, step=0.01,
+         min_value=0.001, max_value=0.99, value=0.5, step=0.005,
          help="Set this to the TRUE intended control-group ratio, not a guess — "
          "check with df['group_col'].value_counts(normalize=True) first."
 )
