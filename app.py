@@ -161,7 +161,12 @@ else:
             group_b_options = [v for v in group_values if v != group_a]
             group_b = st.selectbox("Which value is the treatment group?", group_b_options, index=0)
 
-        expected_ratio = st.slider("Expected split ratio (control : total)", 0.1, 0.9, 0.5, 0.05)
+        expected_ratio = st.slider(
+    "Expected split ratio (control : total)",
+         min_value=0.01, max_value=0.99, value=0.5, step=0.01,
+         help="Set this to the TRUE intended control-group ratio, not a guess — "
+         "check with df['group_col'].value_counts(normalize=True) first."
+)
 
         continuous_col = st.selectbox(
             "Optional: a continuous metric to compare (e.g. revenue) — or None",
